@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Kanban</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+</style>
+
+<body class="bg-slate-50 min-h-screen p-6 md:p-12">
+
+    <header class="max-w-6xl mx-auto mb-12 text-center">
+        <h1 class="text-4xl font-light text-slate-800 tracking-tight">
+            Gestión de <span class="font-semibold text-indigo-600">Proyectos</span>
+        </h1>
+        <p class="text-slate-500 mt-2">Organiza tus ideas con claridad y estilo.</p>
+    </header>
+
+    <section class="max-w-7xl mx-auto mb-10">
+        <div
+            class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col lg:flex-row gap-4 items-end">
+
+            <div class="flex-[3] w-full">
+                <label for="task-title"
+                    class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 ml-1">
+                    Título de la Tarea
+                </label>
+                <input type="text" id="task-title" placeholder="Ej: Finalizar reporte..."
+                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all">
+            </div>
+
+            <div class="flex-[1] w-full">
+                <label for="task-priority"
+                    class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 ml-1">
+                    Prioridad
+                </label>
+                <select id="task-priority"
+                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all cursor-pointer">
+                    <option value="Alta">Alta</option>
+                    <option value="Media" selected>Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
+            </div>
+
+            <div class="flex-[1] w-full">
+                <label for="task-date"
+                    class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 ml-1">
+                    Fecha Límite
+                </label>
+                <input type="date" id="task-date"
+                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all cursor-pointer">
+            </div>
+
+            <button id="add-task-btn"
+                class="w-full lg:w-auto px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-lg shadow-indigo-200 transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Añadir
+            </button>
+
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <section class="flex flex-col gap-4">
+            <div class="flex items-center justify-between px-2">
+                <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Pendiente</h2>
+                <span id="contador-pendiente"
+                    class="bg-slate-200 text-slate-600 text-xs px-2 py-1 rounded-full">0</span>
+            </div>
+            <div id="pendiente" ondragover="permitirSoltar(event)" ondrop="soltarTarea(event)"
+                class="bg-slate-100/50 border-2 border-dashed border-slate-200 rounded-2xl p-4 min-h-[600px] transition-colors hover:border-indigo-200">
+
+            </div>
+        </section>
+
+        <section class="flex flex-col gap-4">
+            <div class="flex items-center justify-between px-2">
+                <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-400">En Proceso</h2>
+                <span id="contador-proceso"
+                    class="bg-indigo-100 text-indigo-600 text-xs px-2 py-1 rounded-full">0</span>
+            </div>
+            <div id="proceso" ondragover="permitirSoltar(event)" ondrop="soltarTarea(event)"
+                class="bg-indigo-50/30 border-2 border-dashed border-indigo-100 rounded-2xl p-4 min-h-[600px]">
+            </div>
+        </section>
+
+        <section class="flex flex-col gap-4">
+            <div class="flex items-center justify-between px-2">
+                <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Terminado</h2>
+                <span id="contador-terminado"
+                    class="bg-emerald-100 text-emerald-600 text-xs px-2 py-1 rounded-full">0</span>
+            </div>
+            <div id="terminado" ondragover="permitirSoltar(event)" ondrop="soltarTarea(event)"
+                class="bg-emerald-50/30 border-2 border-dashed border-emerald-100 rounded-2xl p-4 min-h-[600px]">
+            </div>
+        </section>
+
+    </main>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
