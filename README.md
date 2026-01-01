@@ -20,14 +20,10 @@ Una aplicación web interactiva para gestionar tareas diarias, priorizar activid
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone [https://github.com/TU_USUARIO/nombre-repo.git](https://github.com/TU_USUARIO/nombre-repo.git)
+    git clone https://github.com/adrianrmz23/kanban
     ```
 2.  **Abre el proyecto:**
     Simplemente abre el archivo `index.html` en tu navegador web favorito. No requiere instalación de dependencias ni servidores backend.
-
-## 📸 Capturas de Pantalla
-
-*(Aquí puedes agregar una imagen de tu app. Sube la imagen a tu repo y pon la ruta aquí, por ejemplo: `![Vista Principal](./screenshot.png)`)*
 
 ## 🔮 Próximas Mejoras (Roadmap)
 
