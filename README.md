@@ -29,7 +29,6 @@ Una aplicación web interactiva para gestionar tareas diarias, priorizar activid
 
 * [ ] Agregar categorías o etiquetas personalizadas.
 * [ ] Modo oscuro (Dark Mode).
-* [ ] Opción para editar el texto de una tarea ya creada.
 
 ---
 Hecho con 💜 por [ADRIAN]
